@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div id="profile-box">
+    <div class="profile-cover">
+        <img src="{{ url_for('static', filename='profile.png') }}">
+        <h1>Jordan Hewitt</h1>
+        <p>@jayHew</p>
+        <p>Kingston, Jamaica</p>
+        <p>Joined {{ date }} </p>
+    </div>
+    <div class="profile-description">
+        <p> I would love to work on AI to furhter advance and push the limits of technology in the future. I also enjoy game design just as much so message me if you ever want to talk about that!</p>
+        <ul>
+            <span>
+                <li>5</li>
+                <li>100</li>
+                <li>975</li>
+            </span>
+            <li>Posts</li>
+            <li>Following</li>
+            <li>Followers</li>
+        </ul>
+        <button>Follow</button>
+    </div>
+</div>
+
+{% endblock %}

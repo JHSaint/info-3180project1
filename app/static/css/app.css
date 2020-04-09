@@ -1,0 +1,100 @@
+body {
+    padding-top: 5rem;
+}
+
+/* Container holding the profile */
+#profile-box{
+    margin: 0 auto;
+    display: grid;
+    grid-template: 10% 50% 30% 10% / 20% 60% 20%;
+    text-align: center;
+    display: block;
+    width: 500px;
+    height: 600px;
+    box-shadow: -1px 0 #A7AAAA, 0 1px #A7AAAA, 1px 0 #A7AAAA, 0 -1px #A7AAAA;
+    border-radius: 20px;
+}
+
+/* Profile picture */
+img{
+    height: 180px;
+    border-radius: 90px;
+    margin-top: 35px;
+    box-shadow: 4px 4px 5px #6B1616;
+}
+
+/* Profile cover formatting */
+.profile-cover{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    grid-row: 2 / span 1;
+    grid-column: 2;
+    background-color: #6B1616;
+    height: 350px;
+    color: #fff;
+}
+
+.profile-cover h1{
+    margin: 10px 0 0 0;
+    font-size: 35px;
+    text-shadow: 2px 2px 5px #6B1616;
+}
+    /* Removes the space bewteen the paragraph elements
+    with the profile cover */
+.profile-cover p{
+    margin: 0;
+}
+
+/* Description for the profile */
+.profile-description{
+    margin: 0;
+    grid-row: 3 / span 1;
+    grid-column: 2;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 250px;
+    color: #999B9B;
+}
+    /*Displays the paragraph in block format */
+.profile-description p{
+    padding: 10px 60px 0;
+    text-align: justify;
+}
+
+/* Display the posts, following and follower information */
+ul{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    padding: 0 15px 0 15px;
+    margin-left: 2px;
+}
+
+/* The posts, following and followers values */
+span li{
+    padding: 0 40px 0 40px;
+    color: #2C2D2D;
+    font-weight: bold;
+}
+    /* Places the following list elements in new line */
+span::after{
+    content: '\A';
+    white-space: pre;
+}
+
+/* Follow button for the profile */
+button{
+    margin: 20px 0 20px 0;
+    border-radius: 5px;
+    width: 130px;
+    height: 30px;
+    display: inline-block;
+    font-size: 13px;
+    color: #fff;
+    background-color: #6B1616;
+    border: none;
+}
