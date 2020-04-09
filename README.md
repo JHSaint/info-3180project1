@@ -1,5 +1,4 @@
-# INFO3180 - Lab 2
-This is the starter code for Lab 2
+# INFO3180 - Project 1
 
 Remember to always create a virtual environment and install the packages in your requirements file
 
