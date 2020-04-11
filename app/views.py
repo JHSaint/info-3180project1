@@ -4,10 +4,14 @@ Jinja2 Documentation:    http://jinja.pocoo.org/2/documentation/
 Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
-
-from app import app
+import os
+from app import app, db
 from flask import render_template, request, redirect, url_for, flash
+from werkzeug.utils import secure_filename
+from app.forms import ProfileForm
+from app.models import UserProfile
 import datetime
+
 
 ###
 # Routing for your application.
@@ -22,19 +26,65 @@ def home():
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html')
 
-@app.route('/profile')
+
+@app.route("/profile", methods=["GET", "POST"])
 def profile():
-        return render_template('profile.html', date=format_date_joined(2, 1, 2020))
+    form = ProfileForm()
+    if request.method == "POST":
+        if form.validate_on_submit() == True:
+            
+            #Gets the user input from the form
+            fname = form.firstname.data
+            lname = form.lastname.data
+            gender = form.gender.data
+            email = form.email.data
+            location = form.location.data
+            bio = form.bio.data
+            date = format_date_joined()
+            picture= assignPath(form.photo.data)
+            
+            #create user object and add to database
+            user = UserProfile(fname,lname,gender,email,location,bio, date, picture)
+            db.session.add(user)
+            db.session.commit()
 
+            # remember to flash a message to the user
+            flash('User information submitted successfully.', 'success')
+        else:
+            flash('User information not submitted', 'danger')
+        return redirect(url_for("profiles"))  # they should be redirected to a secure-page route instead
+    return render_template("profile.html", form=form)
+
+@app.route("/profiles")
+def profiles():
+    user_profiles = db.session.query(UserProfile).all()
+    return render_template("profiles.html", users=user_profiles)
+    
+
+@app.route("/profile/<userid>")
+def profileId(userid):
+    user = db.session.query(UserProfile).filter_by(id=int(userid)).first()
+    return render_template("individual.html", user=user)
+    
 
 ###
 # The functions below should be applicable to all Flask apps.
 ###
-def format_date_joined(month, day, year):
-    date_joined = datetime.date(year, month, day) # a specific date
-    return date_joined.strftime("%B, %Y")
+
+#Save the uploaded photo to upload folder
+def assignPath(upload):
+    filename = secure_filename(upload.filename)
+    upload.save(os.path.join(
+                app.config['UPLOAD_FOLDER'], filename
+    ))
+    return filename 
+
+def format_date_joined():
+    now = datetime.datetime.now()
+    # Return only month and year for date
+    return now.strftime("%B %d, %Y")
 
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
@@ -47,8 +97,7 @@ def send_text_file(file_name):
 def add_header(response):
     """
     Add headers to both force latest IE rendering engine or Chrome Frame,
-    and also tell the browser not to cache the rendered page. If we wanted
-    to we could change max-age to 600 seconds which would be 10 minutes.
+    and also to cache the rendered page for 10 minutes.
     """
     response.headers['X-UA-Compatible'] = 'IE=Edge,chrome=1'
     response.headers['Cache-Control'] = 'public, max-age=0'
