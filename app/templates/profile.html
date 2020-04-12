@@ -4,7 +4,7 @@
 {% block main %}
     <div class="outer" style="width: 500px;">
         <h1>Add Profile</h1>
-        <div class="middle borderCol" style="background-color: #fff; padding: 20px 0 20px 40px;">
+        <div class="middle borderCol" style="background-color: #fff; padding: 20px 0px 20px 40px;">
             <div class="inner">
                 <form action="{{ url_for('profile') }}" method="post" enctype="multipart/form-data">
                     {{ form.csrf_token }}

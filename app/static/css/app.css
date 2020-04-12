@@ -1,100 +1,189 @@
+  
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 body {
     padding-top: 5rem;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #ebf5fb;
 }
 
-/* Container holding the profile */
-#profile-box{
-    margin: 0 auto;
-    display: grid;
-    grid-template: 10% 50% 30% 10% / 20% 60% 20%;
-    text-align: center;
-    display: block;
-    width: 500px;
-    height: 600px;
-    box-shadow: -1px 0 #A7AAAA, 0 1px #A7AAAA, 1px 0 #A7AAAA, 0 -1px #A7AAAA;
-    border-radius: 20px;
+/*Applies light blue colour to the body of the individual
+  profiles that are displayed on profiles/<userid>*/
+/*.contain{*/
+    
+/*    padding: 0;*/
+/*    margin: 0 !important;*/
+/*    width: 793px !important;*/
+/*}*/
+
+
+.outer {
+  left: 0;
+  margin-left: 200px;
 }
 
-/* Profile picture */
-img{
-    height: 180px;
-    border-radius: 90px;
-    margin-top: 35px;
-    box-shadow: 4px 4px 5px #6B1616;
+.middle {
+  vertical-align: middle;
 }
 
-/* Profile cover formatting */
-.profile-cover{
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    grid-row: 2 / span 1;
-    grid-column: 2;
-    background-color: #6B1616;
-    height: 350px;
-    color: #fff;
+.inner {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.profile-cover h1{
-    margin: 10px 0 0 0;
-    font-size: 35px;
-    text-shadow: 2px 2px 5px #6B1616;
-}
-    /* Removes the space bewteen the paragraph elements
-    with the profile cover */
-.profile-cover p{
-    margin: 0;
-}
 
-/* Description for the profile */
-.profile-description{
-    margin: 0;
-    grid-row: 3 / span 1;
-    grid-column: 2;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    height: 250px;
-    color: #999B9B;
-}
-    /*Displays the paragraph in block format */
-.profile-description p{
-    padding: 10px 60px 0;
-    text-align: justify;
-}
 
-/* Display the posts, following and follower information */
-ul{
-    list-style: none;
-    text-align: center;
-    padding: 0;
-}
 
-li {
-    display: inline-block;
-    padding: 0 15px 0 15px;
-    margin-left: 2px;
-}
-
-/* The posts, following and followers values */
-span li{
-    padding: 0 40px 0 40px;
-    color: #2C2D2D;
+h1{
+    font-size: 30px;
     font-weight: bold;
 }
-    /* Places the following list elements in new line */
-span::after{
-    content: '\A';
-    white-space: pre;
+
+.label{
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
 }
 
-/* Follow button for the profile */
-button{
-    margin: 20px 0 20px 0;
+.f-group{
+    margin-bottom: 15px;
+}
+
+.f-group input{
+    width: 350px;
+    display: block;
+}
+
+select{
+    width: 350px !important;
+}
+
+.f-group textarea{
+    width: 350px;
+    height: 100px;
+}
+
+
+.f-group input[type=file]{
+    color: transparent;
+}
+
+button, input{
     border-radius: 5px;
-    width: 130px;
-    height: 30px;
-    display: inline-block;
-    font-size: 13px;
     color: #fff;
-    background-color: #6B1616;
+}
+
+input[type=submit]{
+    background-color:  #7bd417;
+    font-weight: bold;
+    width: 100px;
+    height: 25px;
+    margin-top: 10px;
+    font-size: 14px;
     border: none;
+}
+
+
+button[name="view"]{
+    background-color: #7bd417 !important;
+    width: 116px;
+    height: 27px;
+    font-weight: bold;
+    font-size: 11px;
+    margin: 20px 10px 0 0;
+    border: none;
+}
+
+/*Adds the blue boder to the top of the profiles*/
+.borderCol{
+    border-top-color:  #7fb3d5 !important;
+    border-top-width: 4px !important;
+    border-radius: 7px !important;
+}
+
+
+/*Aligns the profile pictures on the profiles page*/
+.fixImg{
+    margin: 10px 0 0 15px;
+    height: 90px;
+}
+
+.profile{
+    font-weight: 900;
+    font-size: 14px;
+    margin: 0 0 4px 20px;
+}
+
+.descrip{
+    margin: 0 0 4px 20px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #979a9a;
+
+}
+
+.contain{
+    display: flex;
+    justify-content: center;
+}
+
+
+.image{
+    margin-top: 20px;
+    margin-left: 40px;
+    height: 120px;
+}
+
+.heading{
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 0 3px 38px;
+}
+
+.description{
+    margin: 0 0 14px 38px;
+    font-size: 13px;
+}
+
+h5{
+    font-weight: bold;
+}
+
+.edit{
+    font-size: 12px;
+    margin: 0 0 8px 24px;
+    font-weight: bolder;
+}
+
+.bio{
+    font-size: 12px;
+    margin: 0 0 8px 24px;
+}
+
+.centered{
+    text-align: center;
+    padding: 20px 0 0 0 !important;
+}
+
+.no-border{
+    border-top: none !important;
+}
+
+button[name="message"]{
+    background-color: #7bd417 !important;
+    width: 170px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 12px;
+    margin: 0 15px 0 0;
+}
+
+button[name="follow"]{
+    width: 170px;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 12px;
+    margin: 0 0 0 15px;
 }
