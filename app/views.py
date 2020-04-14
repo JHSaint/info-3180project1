@@ -36,17 +36,17 @@ def profile():
         if form.validate_on_submit() == True:
             
             #Gets the user input from the form
-            fname = form.firstname.data
-            lname = form.lastname.data
+            fname = form.first_name.data
+            lname = form.last_name.data
             gender = form.gender.data
             email = form.email.data
             location = form.location.data
             bio = form.bio.data
             date = format_date_joined()
-            picture= assignPath(form.photo.data)
+            pic= assignPath(form.pic.data)
             
             #create user object and add to database
-            user = UserProfile(fname,lname,gender,email,location,bio, date, picture)
+            user = UserProfile(fname,lname,gender,email,location,bio,pic,date)
             db.session.add(user)
             db.session.commit()
 
@@ -66,7 +66,7 @@ def profiles():
 @app.route("/profile/<userid>")
 def profileId(userid):
     user = db.session.query(UserProfile).filter_by(id=int(userid)).first()
-    return render_template("individual.html", user=user)
+    return render_template("person.html", user=user)
     
 
 ###

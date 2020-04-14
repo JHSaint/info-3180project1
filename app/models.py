@@ -15,7 +15,7 @@ class UserProfile(db.Model):
     gender = db.Column(db.String(20))
     email = db.Column(db.String(80))
     location = db.Column(db.String(200))
-    bio = db.Column(db.String(1000))
+    bio= db.Column(db.String(1000))
     pic = db.Column(db.String(200))
     date = db.Column(db.String(30))
     

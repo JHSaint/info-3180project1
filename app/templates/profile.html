@@ -9,20 +9,21 @@
                 <form action="{{ url_for('profile') }}" method="post" enctype="multipart/form-data">
                     {{ form.csrf_token }}
                     <div class="f-group">
-                        {{form.firstname.label(class="label")}}
-                        {{form.firstname(class="form-control")}}
+                        {{form.first_name.label(class="label")}}
+                        {{form.first_name(class="form-control")}}
                     </div>
                     <div class="f-group">
-                        {{form.lastname.label(class="label")}}
-                        {{form.lastname(class="form-control")}}
+                        {{form.last_name.label(class="label")}}
+                        {{form.last_name(class="form-control")}}
                     </div>
                     <div class="f-group">
+                        <option value="none" selected disabled hidden>Select an Option</option>
                         {{form.gender.label(class="label")}}
-                        {{form.gender(class="custom-select", default="Select Gender")}}
+                        {{form.gender(class="custom-select")}}
                     </div>
                     <div class="f-group">
                         {{form.email.label(class="label")}}
-                        {{form.email(class="form-control",placeholder="e.g. jdoe@example.com")}}
+                        {{form.email(class="form-control",placeholder="e.g. aKelly@example.com")}}
                     </div>
                     <div class="f-group">
                         {{form.location.label(class="label")}}
@@ -33,8 +34,8 @@
                         {{form.bio(class="form-control")}}
                     </div>
                     <div class="f-group">
-                        {{form.photo.label(class="label")}}
-                        {{form.photo(class="btn-light")}}
+                        {{form.pic.label(class="label")}}
+                        {{form.pic(class="btn-light")}}
                     </div>
                     <div class="f-group">
                         {{form.submit}}

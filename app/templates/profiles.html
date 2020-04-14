@@ -9,7 +9,7 @@
           <div class="card mb-3 borderCol" style="max-width: 590px;">
             <div class="row no-gutters">
               <div class="col-md-3">
-                <img src= "{{ ur_for('static', filename= 'uploads/'+user.pic)}}" class="card-img fixImg" alt="...">
+                <img src= "{{ url_for('static', filename= 'uploads/'+user.pic)}}" class="card-img fixImg" alt="...">
               </div>
               <div class="col-md-5">
                   <div class="card-body">
